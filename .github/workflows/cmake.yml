@@ -1,5 +1,4 @@
-name: CMake
-
+name: Unit-test_SensorHub_FW
 on:
   push:
     branches: [ "main" ]
@@ -18,21 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/cache@v3
-      with:
-        path: |
-          ~/.cache/pip
-          ~/.platformio/.cache
-        key: ${{ runner.os }}-pio
-    - uses: actions/setup-python@v4
-      with:
-       python-version: '3.9'
-    - name: Install PlatformIO Core
-      run: pip install --upgrade platformio
-    - name: Build PlatformIO Project
-      run: cd SensorHub_FW && pio run
-      
+    - uses: actions/checkout@v3      
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
